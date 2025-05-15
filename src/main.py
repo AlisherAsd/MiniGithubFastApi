@@ -10,23 +10,6 @@ from .models import User, Project, File
 import asyncio
 import os
 
-mock_bd = {
-'projects_list': [
-    {"id": 1, "name": "Проект 1", "description": "Описание проекта 1"},
-    {"id": 2, "name": "Проект 2", "description": "Описание проекта 2"},
-    {"id": 3, "name": "Проект 3", "description": "Описание проекта 3"}
-],
-'profile': {
-    'name': '',
-    'email': '',
-    'password': '',
-    'isAuth': False
-},
-'users': [
-    {'id': 1, 'login': 'admin@gmail.com', 'password': "admin"}
-]
-}
-
 app = FastAPI()
 
 # Добавляем middleware для сессий
