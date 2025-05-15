@@ -1,0 +1,19 @@
+{% extends "base.html" %} 
+{% block title %}Проекты{% endblock %} 
+{% block content %}
+<div class="inner_nav">
+  <h1>Пользователи</h1>
+</div>
+<div class="list">
+  {% for user in users %}
+  <div class="item">
+    <div class="proj__info">
+        <img class="img__proj" src="/static/img/profile.png" alt="" />
+      <h3>{{ user.login }}</h3>
+      <p>{{ user.email }}</p>
+    </div>
+    <a href="/users/{{ user.id }}"><button>Посмотреть</button></a>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

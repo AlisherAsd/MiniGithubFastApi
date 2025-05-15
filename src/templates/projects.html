@@ -1,0 +1,24 @@
+{% extends "base.html" %} 
+{% block title %}Проекты{% endblock %} 
+{% block content %}
+<div class="inner_nav">
+  <h1>Проекты</h1>
+  <a href="/projects/new">
+    <button>Новый проект</button>
+  </a>
+</div>
+<div class="list">
+  {% for project in projects %}
+  <div class="item">
+    <div class="proj__info">
+      <img class="img__proj" src="/static/img/project.jpg" alt="" />
+      <h3>{{ project.name }}</h3>
+      <p>{{ project.description }}</p>
+    </div>
+    <a href="/projects/{{ project.id }}">
+      <button>Посмотреть</button>
+    </a>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

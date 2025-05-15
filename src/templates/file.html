@@ -1,0 +1,70 @@
+{% extends "base.html" %} 
+{% block title %}Проекты{% endblock %} 
+{% block content %}
+<div class="inner_nav">
+  <h1>Файл {{ file.name }}</h1>
+  <button>Изменить</button>
+</div>
+<div class="file">
+    <pre>{{ file.text }}</pre>
+</div>
+<div class="buttons">
+<button class="save_button">Сохранить</button>
+<button class="cancel_button">Отмена</button>
+</div>
+<script>
+    const button = document.querySelector('button')
+    const code = document.querySelector('pre')
+    const save_button = document.querySelector('.save_button')
+    const cancel_button = document.querySelector('.cancel_button')
+    button.addEventListener('click', () => {
+        const fileDiv = document.querySelector('.file');
+        const text = fileDiv.querySelector('pre').textContent;
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.style.color = 'black';
+        textarea.className = 'file';
+        textarea.style.width = '100%';
+        textarea.style.height = '300px';
+        fileDiv.replaceWith(textarea);
+        save_button.style.display = 'block';
+        cancel_button.style.display = 'block';
+    })
+
+    cancel_button.addEventListener('click', () => {
+        const textarea = document.querySelector('textarea');
+        const fileDiv = document.createElement('div');
+        fileDiv.className = 'file';
+        const pre = document.createElement('pre');
+        pre.textContent = textarea.value;
+        fileDiv.appendChild(pre);
+        textarea.replaceWith(fileDiv);
+        save_button.style.display = 'none';
+        cancel_button.style.display = 'none';
+    })
+
+    save_button.addEventListener('click', async () => {
+        const textarea = document.querySelector('textarea');
+        const text = textarea.value;
+        
+        try {
+            const formData = new FormData();
+            formData.append('text', text);
+            
+            const response = await fetch(window.location.pathname, {
+                method: 'PATCH',
+                body: formData
+            });
+            
+            if (response.ok) {
+                window.location.reload();
+            } else {
+                alert('Ошибка при сохранении файла');
+            }
+        } catch (error) {
+            console.error('Ошибка:', error);
+            alert('Произошла ошибка при сохранении файла');
+        }
+    });
+</script>
+{% endblock %}

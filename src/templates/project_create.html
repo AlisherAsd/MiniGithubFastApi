@@ -1,0 +1,26 @@
+{% extends "base.html" %} {% block title %}Проект asdsad{% endblock %} {% block
+content %}
+<div class="inner_nav">
+  <h1>Создать проект</h1>
+</div>
+<div class="form__container">
+  <form class="form" method="POST" action="/projects/new">
+    <h1>Сoздать проект</h1>
+    <input
+      name="name"
+      placeholder="Введите название проекта"
+      class="form__input"
+      type="text"
+      required
+    />
+    <input
+      name="description"
+      placeholder="Введите описание проекта"
+      class="form__input"
+      type="text"
+      required
+    />
+    <button type="submit" class="form__button">Создать</button>
+  </form>
+  </div>
+{% endblock %}

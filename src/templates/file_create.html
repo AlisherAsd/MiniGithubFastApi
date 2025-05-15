@@ -1,0 +1,26 @@
+{% extends "base.html" %} {% block title %}Проект asdsad{% endblock %} {% block
+    content %}
+    <div class="inner_nav">
+      <h1>Создать проект</h1>
+    </div>
+    <div class="form__container">
+      <form class="form" method="POST" action="/projects/{{ project_id }}/new_file">
+        <h1>Сoздать файл</h1>
+        <input
+          name="name"
+          placeholder="Введите название файла"
+          class="form__input"
+          type="text"
+          required
+        />
+        <textarea
+          name="text"
+          placeholder="Введите код"
+          class="form__input"
+          required
+        ></textarea>
+        <button type="submit" class="form__button">Создать</button>
+      </form>
+      </div>
+    {% endblock %}
+    

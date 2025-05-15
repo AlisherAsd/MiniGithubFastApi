@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Пользователь{% endblock %}
+
+{% block content %}
+  <div>
+    <div class="form__container">
+      <div class="form__profile">
+        <h1>Профиль</h1>
+        <img src="/static/img/profile.png" alt="avatar">
+        <h2>{{ user.login }}</h2>
+        <h2>{{ user.email }}</h2>
+      </div>
+    </div>
+  </div>
+{% endblock %}

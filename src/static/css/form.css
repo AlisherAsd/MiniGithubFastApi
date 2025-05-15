@@ -1,0 +1,54 @@
+.form__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.form {
+    border: 1px solid gray;
+    border-radius: 50px;
+    height: 400px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+
+    h1 {
+        color: black;
+    }
+}
+
+
+.form__profile {
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 50px;
+    height: 500px;
+    width: 400px;
+    display: flex;
+    flex-direction: column; 
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    h1, h2, h3, h4, h5, h6, p {
+        color: black;
+    }
+}
+
+.form__button {
+    width: 300px;
+}
+
+.form__input {
+    width: 280px;
+    padding: 10px;
+    border-radius: 13px;
+}
+
+img {
+    border-radius: 50%;
+}
